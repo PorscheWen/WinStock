@@ -1,0 +1,38 @@
+if(p_NeuralNetWork)
+	{
+		delete p_NeuralNetWork;
+		p_NeuralNetWork = NULL;
+	}
+	assert(p_NeuralNetWork == NULL);
+    if (p_NeuralNetWork == NULL) 
+	{
+        p_NeuralNetWork = new TNeural_NetWork();
+    }
+    assert(p_NeuralNetWork != NULL);
+    //p_NeuralNetWork->_readData(file_name);
+    p_NeuralNetWork->_readData_fromPorsche(file_name);
+
+
+
+
+    int _hiddenLayerNum(2);
+
+    int *_neuronsNum(NULL);
+    _neuronsNum = new int[_hiddenLayerNum];
+    _neuronsNum[0] = 10;
+    _neuronsNum[1] = 10;
+
+
+    p_NeuralNetWork->_buildNeural(6 , _hiddenLayerNum ,  _neuronsNum , 1);
+
+    if(_neuronsNum)
+    {
+        delete [] _neuronsNum;
+        _neuronsNum = NULL;
+    }
+    if(p_NeuralNetWork)
+	{
+		delete p_NeuralNetWork;
+		p_NeuralNetWork = NULL;
+	}
+    return;
